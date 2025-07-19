@@ -9,7 +9,7 @@ export default function Navbar() {
 		const navTween = gsap.timeline({
 			scrollTrigger:{
 				trigger:'.nav',
-				start:'bottom top',
+				start:'top bottom ',
 			}
 		})
 		navTween.fromTo("nav", {backgroundColor: "transparent"}, {
