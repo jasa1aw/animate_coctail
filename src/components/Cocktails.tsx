@@ -1,7 +1,8 @@
 'use client'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
+import Image from 'next/image'
 import { cocktailLists, mockTailLists } from '../../constants'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 export default function Cocktails (){
 	useGSAP(() => {
@@ -25,13 +26,11 @@ export default function Cocktails (){
 
 	return (
 		<section id="cocktails" className="noisy">
-			<img src="/images/cocktail-left-leaf.png" alt="l-leaf" id="c-left-leaf" />
-			<img src="/images/cocktail-right-leaf.png" alt="r-leaf" id="c-right-leaf" />
-
+			<Image src="/images/cocktail-left-leaf.png" alt="l-leaf" id="c-left-leaf" width={294} height={332}/>
+			<Image src="/images/cocktail-right-leaf.png" alt="r-leaf" id="c-right-leaf" width={315} height={332}/>
 			<div className="list">
 				<div className="popular">
 					<h2>Most popular cocktails:</h2>
-
 					<ul>
 						{cocktailLists.map(({ name, country, detail, price }) => (
 							<li key={name}>
@@ -44,10 +43,8 @@ export default function Cocktails (){
 						))}
 					</ul>
 				</div>
-
 				<div className="loved">
 					<h2>Most loved mocktails:</h2>
-
 					<ul>
 						{mockTailLists.map(({ name, country, detail, price }) => (
 							<li key={name}>

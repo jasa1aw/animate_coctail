@@ -1,8 +1,10 @@
 'use client'
+import Image from 'next/image'
+import Link from 'next/link'
 import { openingHours, socials } from '../../constants'
+import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/all'
-import gsap from 'gsap'
 
 export default function Contact() {
 	useGSAP(() => {
@@ -32,8 +34,8 @@ export default function Contact() {
 
 	return (
 		<footer id="contact">
-			<img src="/images/footer-right-leaf.png" alt="leaf-right" id="f-right-leaf" />
-			<img src="/images/footer-left-leaf.png" alt="leaf-left" id="f-left-leaf" />
+			<Image src="/images/footer-right-leaf.png" alt="leaf-right" id="f-right-leaf" width={356} height={393}/>
+			<Image src="/images/footer-left-leaf.png" alt="leaf-left" id="f-left-leaf" width={308} height={319}/>
 
 			<div className="content">
 				<h2>Where to Find Us</h2>
@@ -63,15 +65,15 @@ export default function Contact() {
 
 					<div className="flex-center gap-5">
 						{socials.map((social) => (
-							<a
+							<Link
 								key={social.name}
 								href={social.url}
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={social.name}
 							>
-								<img src={social.icon} />
-							</a>
+								<Image src={social.icon} width={30} height={30} alt={social.name}/>
+							</Link>
 						))}
 					</div>
 				</div>

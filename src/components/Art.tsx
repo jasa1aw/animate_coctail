@@ -1,8 +1,11 @@
 'use client'
-import gsap from 'gsap'
-import { useMediaQuery } from 'react-responsive'
-import { useGSAP } from '@gsap/react'
+import Image from 'next/image'
 import { featureLists, goodLists } from '../../constants'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { useMediaQuery } from 'react-responsive'
+
+
 
 export default function Art() {
 	const isMobile = useMediaQuery({ maxWidth: 767 })
@@ -30,17 +33,15 @@ export default function Art() {
 		<div id="art">
 			<div className="container mx-auto h-full pt-20">
 				<h2 className="will-fade">The ART</h2>
-
 				<div className="content">
 					<ul className="space-y-4 will-fade">
 						{goodLists.map((feature, index) => (
 							<li key={index} className="flex items-center gap-2">
-								<img src="/images/check.png" alt="check" />
+								<Image src="/images/check.png" alt="check" width={16} height={16}/>
 								<p>{feature}</p>
 							</li>
 						))}
 					</ul>
-
 					<div className="cocktail-img">
 						<img
 							src="/images/under-img.jpg"
@@ -48,17 +49,15 @@ export default function Art() {
 							className="abs-center masked-img size-full object-contain"
 						/>
 					</div>
-
 					<ul className="space-y-4 will-fade">
 						{featureLists.map((feature, index) => (
 							<li key={index} className="flex items-center justify-start gap-2">
-								<img src="/images/check.png" alt="check" />
+								<Image src="/images/check.png" alt="check" width={16} height={16}/>
 								<p className="md:w-fit w-60">{feature}</p>
 							</li>
 						))}
 					</ul>
 				</div>
-
 				<div className="masked-container">
 					<h2 className="will-fade">Sip-Worthy Perfection</h2>
 					<div id="masked-content">

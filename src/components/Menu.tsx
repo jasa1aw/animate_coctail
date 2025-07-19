@@ -1,9 +1,9 @@
 'use client'
-
-import { allCocktails } from '../../constants'
+import Image from 'next/image'
 import { useRef, useState } from 'react'
-import { useGSAP } from '@gsap/react'
+import { allCocktails } from '../../constants'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 export default function Menu() {
 	const contentRef = useRef<HTMLDivElement>(null)
@@ -40,8 +40,8 @@ export default function Menu() {
 
 	return (
 		<section id="menu" aria-labelledby="menu-heading">
-			<img src="/images/slider-left-leaf.png" alt="left-leaf" id="m-left-leaf" />
-			<img src="/images/slider-right-leaf.png" alt="right-leaf" id="m-right-leaf" />
+			<Image src="/images/slider-left-leaf.png" alt="left-leaf" id="m-left-leaf" width={275} height={304}/>
+			<Image src="/images/slider-right-leaf.png" alt="right-leaf" id="m-right-leaf" width={241} height={355}/>
 
 			<h2 id="menu-heading" className="sr-only">
 				Cocktail Menu
@@ -56,7 +56,7 @@ export default function Menu() {
 				${isActive
 								? 'text-white border-white'
 								: 'text-white/50 border-white/50'}
-			 `} onClick={() => goToSlide(index)}
+			`} onClick={() => goToSlide(index)}
 						>
 							{cocktail.name}
 						</button>
@@ -68,17 +68,17 @@ export default function Menu() {
 				<div className="arrows">
 					<button className="text-left" onClick={() => goToSlide(currentIndex - 1)}>
 						<span>{prevCocktail.name}</span>
-						<img src="/images/right-arrow.png" alt="right-arrow" aria-hidden="true" />
+						<Image src="/images/right-arrow.png" alt="right-arrow" aria-hidden="true" width={38} height={38}/>
 					</button>
 
 					<button className="text-left" onClick={() => goToSlide(currentIndex + 1)}>
 						<span>{nextCocktail.name}</span>
-						<img src="/images/left-arrow.png" alt="left-arrow" aria-hidden="true" />
+						<Image src="/images/left-arrow.png" alt="left-arrow" aria-hidden="true" width={38} height={38}/>
 					</button>
 				</div>
 
 				<div className="cocktail">
-					<img src={currentCocktail.image} className="object-contain" />
+					<Image src={currentCocktail.image} className="object-contain" width={538} height={575} alt={currentCocktail.name}/>
 				</div>
 
 				<div className="recipe">
